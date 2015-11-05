@@ -1,0 +1,15 @@
+apply plugin: 'antlr'
+group = 'edu.byu.cs.vv'
+version = '0.0.1'
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  antlr group: 'org.antlr', name: 'antlr4', version: '4.5'
+}
+
+generateGrammarSource {
+  arguments += ["-package", "edu.byu.cs.vv.Mercury"]
+}

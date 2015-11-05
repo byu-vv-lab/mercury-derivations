@@ -2,14 +2,14 @@ lexer grammar HgLexer;
 
 Comment    : '//' .*? LineBreak+ -> channel(HIDDEN);
 Thread     : ('Thread' | 'thread');
-Read       : ('Read' | 'read');
-Mutate     : ('Mutate' | 'mutate');
 Recv       : ('Recv' | 'recv');
 Send       : ('Send' | 'send');
-Wait       : ('Wait' | 'wait');
+Block      : ('Block' | 'block');
 Identifier : (('a'..'z' | 'A'..'Z' | '_') ('a'..'z' | 'A'..'Z' | '_' | Number)*) | Number;
 Space      : WhiteSpace+ -> channel(HIDDEN);
 WhiteSpace : ' ' | '\t';
+OpenParen  : '(';
+CloseParen : ')';
 Comparator : ('==' | '<' | '<=' | '>' | '>=');
 LineBreak  : ('\r')? '\n' -> channel(HIDDEN);
 Number     : ('-')? Digit+ ;

@@ -1,27 +1,35 @@
 parser grammar HgParser;
 
-@header {
-package Parser;
-}
 options {
 tokenVocab=HgLexer;
 }
 
-program      : thread+ EOF;
+program:
+    thread+ EOF;
 
-thread       : threadHeader
-               (operation)*;
+thread:
+    threadHeader
+    (operation)*;
 
-threadHeader : Thread Identifier;
+threadHeader:
+    Thread Identifier;
 
-operation    : (mutate | read | receive | send | block);
+operation:
+    (receive | send | block);
 
-mutate       : Mutate Identifier;
+receive:
+    Recv OpenParen
+        Identifier
+        Identifier
+    CloseParen;
 
-read         : Read Identifier;
+send:
+    Send OpenParen
+        Identifier
+        Identifier
+    CloseParen;
 
-receive      : Recv Identifier Identifier;
-
-send         : Send Identifier Identifier;
-
-block        : Wait Identifier;
+block:
+    Block OpenParen
+        Identifier
+    CloseParen;
