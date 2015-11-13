@@ -5,7 +5,7 @@ Mercury provides a semantic language kernel for reasoning about message passing 
 ## Derivations
 Our goal is to provide provable derivations from correct MPI syntax to mercury code. Initially we will focus only on a subset of MPI syntax.
 
-A list of commands is available in [mercury_commands.md](docs/mercury_commands.md) and derivations in [derivations.md](docs/derivations.md).
+A [list of commands](docs/mercury_commands.md) is available as well as [derivations](docs/derivations.md).
 
 ## Grammar
 An ANTLR4 grammar is provided to parse mercury.
